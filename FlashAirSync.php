@@ -102,7 +102,8 @@ UPLOAD=1
     {
       // Delete from card
       echo "Delete {$From}\n";
-      command("upload.cgi", array('DEL' => $From));
+      echo command("upload.cgi", array('DEL' => $From));
+      echo "\n";
       unlink(dirname($To) . '/.Manifest/'.basename($To));
     }
     elseif(!file_exists($To))
@@ -154,7 +155,7 @@ UPLOAD=1
       exit;
     }
 
-    $Command = is_numeric($Op) ? "http://{$FlashAirIP}/command.cgi?op=$Op" : "http://{$FlashAirIP}/{$Op}?__DUMMY__=1";
+    $Command = is_numeric($Op) ? "http://{$FlashAirIP}/command.cgi?op=$Op" : "http://{$FlashAirIP}/{$Op}?";
 
     foreach($Args as $k => $v)
     {
