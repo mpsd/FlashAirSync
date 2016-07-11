@@ -103,7 +103,7 @@
         if(!alive())
         {
           force_next_update();
-          exit(2);
+          exit;
         }
       }
     }
@@ -135,7 +135,7 @@
     if(!alive())
     {
       force_next_update();
-      exit(2);
+      exit;
     }
 
     $Command = is_numeric($Op) ? "http://{$FlashAirIP}/command.cgi?op=$Op" : "http://{$FlashAirIP}/{$Op}?";
@@ -149,7 +149,7 @@
     if($Contents === FALSE)
     {
       force_next_update();
-      exit(2);
+      exit;
     }
     return $Contents;
   }
@@ -157,13 +157,13 @@
   if(!alive())
   {
     echo "Not Online\n";
-    exit(2);
+    exit;
   }
 
   if(!$ForceUpdate && command(102) == 0)
   {
     echo "No Changes\n";
-    exit(0);
+    exit;
   }
 
   function sync_dir($Dir, $To)
@@ -204,5 +204,4 @@
   sync_dir($SyncFrom, $SyncTo);
   touch($SyncTo . '/.Last_Update');
   
-  exit(0);
 ?>
