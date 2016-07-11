@@ -220,4 +220,7 @@ UPLOAD=1
 
   sync_dir($SyncFrom, $SyncTo);
   touch($SyncTo . '/.Last_Update');
+  
+  // Run postprocessor
+  echo exec( dirname(__FILE__) . '/FlashAirSync.post');
 ?>
