@@ -205,5 +205,5 @@
   touch($SyncTo . '/.Last_Update');
   
   // Run postprocessor
-  echo exec( dirname(__FILE__) . '/FlashAirSync.post');
+  echo exec( dirname(__FILE__) . '/FlashAirSync.post '. $SyncTo);
 ?>
