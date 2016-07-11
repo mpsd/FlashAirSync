@@ -9,3 +9,10 @@ OUTDIR=/srv/flashair/out
 
 find $1 -iname "*.*" -links 1 ! -iname ".*" ! -path "*CANONMSC* ! -path "*.Mainfest*" ! -path "*100__TSB*" -exec ln {} -d $TMPDIR \;
 
+JHEAD=$(which jhead)
+test -f $JHEAD || exit 2
+
+EXIFTOOL=$(which exiftool)
+test -f $EXIFTOOL || exit 2
+
+find $TMPDIR -iname "*.jpg" -exec $JHEAD -autorot -ft {} \; -exec $EXIFTOOL '-filename<DateTimeOriginal' -d $OUTDIR/%Y-%m/%Y%m%dT%H%M%S_%%f.%%e {} \;
