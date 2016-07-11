@@ -1,5 +1,16 @@
 Forked from alexdu from seemannj
 
+Adds a systemd service wrapper and a post processing script to the fork mentioned above for my NAS setup
+Script chain
+```
+flashairsync.service => FlashAirSync.wrapper => FlashAirSync.php => FlashAirSync.post
+```
+where
+flashairsync.service is a systemd service running on ubuntu 16.04
+FlashAirSync.wrapper is a sh script calling
+FlashAirSync.php     which is calling
+FlashAirSync.post    an sh script to postprocess the new files with jhead and exiftool 
+
 FlashAirSync
 ============
 
