@@ -1,0 +1,1 @@
+# Wrapper called from flashairsync.service (systemd) calls FlashAirSync.php with parameters
