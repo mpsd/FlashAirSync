@@ -5,6 +5,7 @@
 # Creates Hardlinks of 'in' directory in 'temp' directory used for further process with exiftool etc.
 
 TMPDIR=/srv/flashair/temp
+OUTDIR=/srv/flashair/out
 
-find $1 -exec ln {} -d $TMPDIR \;
+find $1 -iname "*.*" -links 1 ! -iname ".*" ! -path "*CANONMSC* ! -path "*.Mainfest*" ! -path "*100__TSB*" -exec ln {} -d $TMPDIR \;
 
