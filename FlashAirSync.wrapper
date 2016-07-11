@@ -9,7 +9,7 @@ exec_sync () {
 
         if ping -c 1 $2 > /dev/null
         then
-           $PHP -f $SCRIPTDIR/FlashAirSync.php -- --flashairip=$2 --syncto=$INDIR/$1 &
+           $PHP -f $SCRIPTDIR/FlashAirSync.php -- --flashairip=$2 --syncto=$INDIR/$1 && $SCRIPTDIR/FlashAirSync.post $INDIR/$1 &
         fi
 }
 
