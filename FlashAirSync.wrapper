@@ -1,1 +1,17 @@
+#!/bin/sh
 # Wrapper called from flashairsync.service (systemd) calls FlashAirSync.php with parameters
+
+PHP=$(which php)
+SCRIPTDIR=$(dirname "$0")
+INDIR=/srv/flashair/in
+
+exec_sync () {
+
+        if ping -c 1 $2 > /dev/null
+        then
+           $PHP -f $SCRIPTDIR/FlashAirSync.php -- --flashairip=$2 --syncto=$INDIR/$1 &
+        fi
+}
+
+exec_sync G11  192.168.2.20
+
