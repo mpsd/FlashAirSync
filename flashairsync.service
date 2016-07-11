@@ -1,2 +1,15 @@
-# systemd initialization file
+# systemd initialization file /etc/systemd/system/flashairsync.service
 #
+[Unit]
+Description="FlashAirSync service"
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStartPre=/bin/sh -c "echo [`date`] FlashAirSync service starting > /var/log/FlashAirSync.log"
+ExecStart=/bin/sh -c "while true; do /srv/flashair/scripts/FlashAirSync.wrapper >> /var/log/FlashAirSync.log; sleep 10; done"
+
+[Install]
+WantedBy=multi-user.target
