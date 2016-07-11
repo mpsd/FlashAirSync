@@ -45,24 +45,7 @@
   //  https://flashair-developers.com/en/documents/
   //  https://flashair-developers.com/en/documents/api/
   //  http://www.extrud3d.com/flashair
-  /*
 
-[Vendor]
-
-CIPATH=/DCIM/100__TSB/FA000001.JPG
-APPMODE=5
-APPNETWORKKEY=YOUR_NETWORK_KEY_HERE
-APPSSID=YOUR_SSID_HERE
-VERSION=F24A6W3AW1.00.03
-CID=02544d5357303847075000c0bf00c801
-PRODUCT=FlashAir
-VENDOR=TOSHIBA
-MASTERCODE=00216b97d78a
-LOCK=1
-APPNAME=flashair
-UPLOAD=1
-
-  */
 
   date_default_timezone_set($TZ);
 
