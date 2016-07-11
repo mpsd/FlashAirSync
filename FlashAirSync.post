@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Postprocessing script for FlashAirSync, called at the end of FlashAirSync.php
+#
+# Creates Hardlinks of 'in' directory in 'temp' directory used for further process with exiftool etc.
+
+TMPDIR=/srv/flashair/temp
+
+find $1 -exec ln {} -d $TMPDIR \;
+
