@@ -7,7 +7,7 @@
 TMPDIR=/srv/flashair/temp
 OUTDIR=/srv/flashair/out
 
-find $1 -iname "*.*" -links 1 ! -iname ".*" ! -path "*CANONMSC*" ! -path "*.Mainfest*" ! -path "*100__TSB*" -exec ln {} -d $TMPDIR \;
+find $1 -iname "*.*" -links 1 ! -iname ".*" ! -path "*.Manifest*" ! -path "*CANONMSC*" ! -path "*100__TSB*" -exec ln {} -d $TMPDIR \;
 
 JHEAD=$(which jhead)
 test -f $JHEAD || exit 2
