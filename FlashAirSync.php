@@ -107,6 +107,13 @@
         }
       }
     }
+    elseif(file_exists($To))
+    {
+      echo "File exists {$From}\n";
+	  touch($To, $Time);
+      // Add it to the manifest
+      touch(dirname($To) . '/.Manifest/'.basename($To), $Time);
+    }
   }
 
   // Check to see if the card is on the network
